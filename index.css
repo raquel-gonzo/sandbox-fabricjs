@@ -2,3 +2,36 @@
   background-color: blue;
   padding: 20px;
 }
+
+.canvas-wrapper {
+  background-color: #ADD8E6;
+  display: flex;
+  justify-content: center;
+}
+
+#canvas {
+  border: 1px solid black;
+  max-width: 100%;
+}
+
+#img-algae {
+  display: none;
+}
+
+@media screen and (max-width: 1024px){
+  #canvas {
+    transform: scale(0.9);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #canvas{
+    transform: scale(0.8)
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #canvas{
+    transform: scale(0.7)
+  }
+}

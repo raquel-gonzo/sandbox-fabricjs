@@ -1,11 +1,25 @@
-const img = new Image(); 
+const canvasWrapper = document.createElement('div');
+canvasWrapper.className = 'canvas-wrapper';
+
+const canvasElement = document.createElement('canvas');
+canvasElement.id = 'canvas';
+
+const img = new Image();
 img.src = './assets/algae_diagram.png';
-img.style.maxWidth = '100%';
-img.style.height = 'auto';
+img.id = 'img-algae';
 
-const imgWrapper = document.createElement('div');
-imgWrapper.className = 'img-wrapper';
+var screenSize = document.body.clientWidth;
 
-document.body.append(imgWrapper);
+document.body.append(img);
+document.body.appendChild(canvasWrapper);
+canvasWrapper.appendChild(canvasElement);
 
-imgWrapper.appendChild(img);
+// Fabric implementation
+const imgFabric = new fabric.Image(img);
+const canvas = new fabric.Canvas('canvas');
+
+canvas.setDimensions({
+  backgroundImage: imgFabric,
+  width: imgFabric.width,
+  height: imgFabric.height
+});
